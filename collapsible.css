@@ -2,3 +2,8 @@
 .collapsible-content {
   display: none;
 }
+
+/* set event-button invisible by default */
+.event-button {
+  display: none;
+}

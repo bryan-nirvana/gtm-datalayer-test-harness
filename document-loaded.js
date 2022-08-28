@@ -31,6 +31,10 @@ const updateFakeUserGrid = () => {
 };
 
 const pushEventToDataLayer = (event) => {
+  // add client timestamp to every event
+  event.clientTimestampMs = Date.now();
+
+  // push to the dataLayer
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(event);
 };
@@ -47,6 +51,7 @@ const pushEventToDataLayer = (event) => {
 
     // add button handler for fake user
     const button = document.getElementById("new-fake-user");
+    button.style.display = "block";
     button.addEventListener("click", () => {
       window.currentUser = getFakeUser();
       saveCurrentUserToLocalStorage();

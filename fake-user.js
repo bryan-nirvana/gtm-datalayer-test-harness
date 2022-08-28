@@ -8,6 +8,8 @@ const getFakeUser = () => {
   let email = faker.internet.email(firstName, lastName);
   let phone = faker.phone.number("+1-###-###-####");
   let deviceId = faker.datatype.uuid();
+  let fingerPrintJsId = faker.datatype.uuid();
+  let sardineDeviceId = faker.datatype.uuid();
 
   let user = {
     nirvanaUserId: id,
@@ -18,6 +20,8 @@ const getFakeUser = () => {
     fullName: fullName,
     email: email,
     phone: phone,
+    fingerPrintJsId: fingerPrintJsId,
+    sardineDeviceId: sardineDeviceId,
   };
 
   console.table(user);
