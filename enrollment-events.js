@@ -96,7 +96,7 @@ const pvnEnrollmentCreditResubmit = () => {
   button.style.display = "block";
   button.addEventListener("click", () => {
     let pagePath = "/enrollment/credit-resubmit";
-    let pageTitle = None;
+    let pageTitle = "";
     pushEventToDataLayer(pageViewNirvanaEvent(pagePath, pageTitle));
   });
 };

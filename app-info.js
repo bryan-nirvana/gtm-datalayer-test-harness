@@ -21,7 +21,7 @@ const deviceInfoClickHandler = () => {
     const event = {};
     event.event = "deviceInfo";
     event.nirvanaDeviceId = window.currentUser.nirvanaDeviceId;
-    event.fingerPrintJsId = windoow.currentUser.fingerPrintJsId;
+    event.fingerPrintJsId = window.currentUser.fingerPrintJsId;
     event.sardineDeviceId = window.currentUser.sardineDeviceId;
     pushEventToDataLayer(event);
   });
@@ -35,7 +35,7 @@ const userInfoClickHandler = () => {
     const event = {};
     event.event = "userInfo";
     event.nirvanaUserId = window.currentUser.nirvanaUserId;
-    event.nirvanaUserStatus = windoow.currentUser.nirvanaUserStatus;
+    event.nirvanaUserStatus = window.currentUser.nirvanaUserStatus;
     pushEventToDataLayer(event);
   });
 };
