@@ -32,24 +32,24 @@ const updateFakeUserGrid = () => {
 
 const addNewFakeUserHandler = () => {
   let button = document.getElementById("new-fake-user");
-  button.addEventListener("click", (event) => generateNewFakeUser(event));
-};
-
-const generateNewFakeUser = () => {
-  window.currentUser = getFakeUser();
-  saveCurrentUserToLocalStorage();
-  updateFakeUserGrid();
+  button.addEventListener("click", () => {
+    window.currentUser = getFakeUser();
+    saveCurrentUserToLocalStorage();
+    updateFakeUserGrid();
+  });
 };
 
 const pushEventToDataLayer = (event) => {
-  window.dataLayer = window.dateLayer || [];
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(event);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Document Loaded!");
+(() => {
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("Document Loaded!");
 
-  addNewFakeUserHandler();
-  getCurrentUserFromLocalStorage();
-  updateFakeUserGrid();
-});
+    addNewFakeUserHandler();
+    getCurrentUserFromLocalStorage();
+    updateFakeUserGrid();
+  });
+})();

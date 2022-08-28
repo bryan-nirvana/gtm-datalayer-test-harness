@@ -1,4 +1,4 @@
-const pageViewNirvanaEvent = (pageTitle, pagePath) => {
+const pageViewNirvanaEvent = (pagePath, pageTitle) => {
   let event = {};
   event.event = "nirvanaPageView";
   event.category = "enrollment";
@@ -92,8 +92,10 @@ const pvnAccountConfirmation = () => {
   pushEventToDataLayer(pageViewNirvanaEvent(pagePath, pageTitle));
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Adding event handlers for nirvanaPageViewEvent - Enrollment");
-  pvnEnrollmentClickHandler();
-  pvnEnrollmentPersonalInfoCLickHandler();
-});
+(() => {
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("Adding event handlers for nirvanaPageViewEvent - Enrollment");
+    pvnEnrollmentClickHandler();
+    pvnEnrollmentPersonalInfoCLickHandler();
+  });
+})();
