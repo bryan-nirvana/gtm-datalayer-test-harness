@@ -30,15 +30,6 @@ const updateFakeUserGrid = () => {
     window.currentUser.nirvanaDeviceId;
 };
 
-const addNewFakeUserHandler = () => {
-  let button = document.getElementById("new-fake-user");
-  button.addEventListener("click", () => {
-    window.currentUser = getFakeUser();
-    saveCurrentUserToLocalStorage();
-    updateFakeUserGrid();
-  });
-};
-
 const pushEventToDataLayer = (event) => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(event);
@@ -48,8 +39,35 @@ const pushEventToDataLayer = (event) => {
   document.addEventListener("DOMContentLoaded", () => {
     console.log("Document Loaded!");
 
-    addNewFakeUserHandler();
+    //get current user from local storage
     getCurrentUserFromLocalStorage();
+
+    //and update the user grid
     updateFakeUserGrid();
+
+    // add button handler for fake user
+    const button = document.getElementById("new-fake-user");
+    button.addEventListener("click", () => {
+      window.currentUser = getFakeUser();
+      saveCurrentUserToLocalStorage();
+      updateFakeUserGrid();
+    });
+
+    // add collapsible section button handlers
+    const collapsibles = document.getElementsByClassName("collapsible-title");
+    for (const collapsible of collapsibles) {
+      collapsible.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        const icon = this.querySelector(".expander-icon");
+        icon.classList.toggle("expanded");
+
+        if (content.style.display === "flex") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "flex";
+        }
+      });
+    }
   });
 })();

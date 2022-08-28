@@ -1,0 +1,4 @@
+/* set collapsible content hidden by default */
+.collapsible-content {
+  display: none;
+}
