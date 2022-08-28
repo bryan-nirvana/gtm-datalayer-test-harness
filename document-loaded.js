@@ -31,16 +31,19 @@ const updateFakeUserGrid = () => {
 };
 
 const addNewFakeUserHandler = () => {
-  let newFakeUserButton = document.querySelectorAll(".new-fake-user");
-  for (const button of newFakeUserButton) {
-    button.addEventListener("click", (event) => generateNewFakeUser(event));
-  }
+  let button = document.getElememntById("new-fake-user");
+  button.addEventListener("click", (event) => generateNewFakeUser(event));
 };
 
 const generateNewFakeUser = () => {
   window.currentUser = getFakeUser();
   saveCurrentUserToLocalStorage();
   updateFakeUserGrid();
+};
+
+const pushEventToDataLayer = (event) => {
+  window.dataLayer = window.dateLayer || [];
+  window.dataLayer.push(event);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
