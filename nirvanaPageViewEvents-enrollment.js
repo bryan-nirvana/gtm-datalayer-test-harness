@@ -15,7 +15,7 @@ const pageViewNirvanaEvent = (pageTitle, pagePath) => {
 
 // nirvana page view events
 const pvnEnrollmentClickHandler = () => {
-  let button = document.getElememntById("pvn-enrollment");
+  let button = document.getElementById("pvn-enrollment");
   button.addEventListener("click", () => {
     let pagePath = "/enrollment";
     let pageTitle = "Enroll";
@@ -24,7 +24,7 @@ const pvnEnrollmentClickHandler = () => {
 };
 
 const pvnEnrollmentPersonalInfoCLickHandler = () => {
-  let button = document.getElememntById("pvn-enrollment-personal-info");
+  let button = document.getElementById("pvn-enrollment-personal-info");
   button.addEventListener("click", () => {
     let pagePath = "/enrollment/personal-info";
     let pageTitle = "Get an Account";
