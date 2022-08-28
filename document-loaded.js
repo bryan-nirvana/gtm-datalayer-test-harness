@@ -31,7 +31,7 @@ const updateFakeUserGrid = () => {
 };
 
 const addNewFakeUserHandler = () => {
-  let button = document.getElememntById("new-fake-user");
+  let button = document.getElementById("new-fake-user");
   button.addEventListener("click", (event) => generateNewFakeUser(event));
 };
 
