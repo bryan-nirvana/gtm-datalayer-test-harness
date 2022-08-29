@@ -57,7 +57,7 @@ const enrollmentStarted = () => {
   button.style.display = "block";
   button.addEventListener("click", () => {
     let event = {};
-    event.event = "enrolmmentStarted";
+    event.event = "enrollmentStarted";
     event.category = "enrollment";
     event.subCategory = "personalInfo";
 
