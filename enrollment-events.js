@@ -60,6 +60,7 @@ const enrollmentStarted = () => {
     event.event = "enrollmentStarted";
     event.category = "enrollment";
     event.subCategory = "personalInfo";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -88,6 +89,7 @@ const phoneVerified = () => {
     event.event = "phoneVerified";
     event.category = "enrollment";
     event.subCategory = "otp";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -101,6 +103,7 @@ const otpResend = () => {
     event.event = "otpResend";
     event.category = "enrollment";
     event.subCategory = "otp";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -129,6 +132,7 @@ const addressVerified = () => {
     event.event = "addressVerified";
     event.category = "enrollment";
     event.subCategory = "address";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -142,6 +146,7 @@ const dontSeeAddressIntent = () => {
     event.event = "dontSeeAddressIntent";
     event.category = "enrollment";
     event.subCategory = "address";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -170,6 +175,7 @@ const applyForCreditIntent = () => {
     event.event = "applyForCreditIntent";
     event.category = "enrollment";
     event.subCategory = "creditApply";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -183,6 +189,7 @@ const agreedTermsConditions = () => {
     event.event = "agreedTermsConditions";
     event.category = "enrollment";
     event.subCategory = "creditApply";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -196,6 +203,7 @@ const optInWebauthn = () => {
     event.event = "optInWebauthn";
     event.category = "enrollment";
     event.subCategory = "creditApply";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -210,6 +218,7 @@ const pvnEnrollmentDocV = () => {
     let pagePath = "/enrollment/documents-verification";
     let pageTitle = "Document Verification";
     let pageCategory = "enrollment";
+
     pushEventToDataLayer(
       pageViewNirvanaEvent(pagePath, pageTitle, pageCategory)
     );
@@ -237,6 +246,7 @@ const kycStart = () => {
     event.event = "kycStart";
     event.category = "enrollment";
     event.subCategory = "kyc";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -250,6 +260,7 @@ const kycComplete = () => {
     event.event = "kycComplete";
     event.category = "enrollment";
     event.subCategory = "kyc";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -264,6 +275,7 @@ const kycResult = () => {
     event.resultStatus = "Success";
     event.category = "enrollment";
     event.subCategory = "kyc";
+    event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
@@ -278,6 +290,8 @@ const kycResubmit = () => {
     event.fieldsUpdated = ["firstName", "lastName", "dateOfBirth", "SSN"];
     event.category = "enrollment";
     event.subCategory = "kyc";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -290,6 +304,8 @@ const kycDocVStarted = () => {
     event.event = "kycDocVStarted";
     event.category = "enrollment";
     event.subCategory = "kyc";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -302,6 +318,8 @@ const kycDocVComplete = () => {
     event.event = "kycDocVComplete";
     event.category = "enrollment";
     event.subCategory = "kyc";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -315,6 +333,8 @@ const kycDocVResult = () => {
     event.resultStatus = "Accept";
     event.category = "enrollment";
     event.subCategory = "kyc";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -355,6 +375,8 @@ const creditDecisionStart = () => {
     event.event = "creditDecisionStart";
     event.category = "enrollment";
     event.subCategory = "creditDecision";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -367,6 +389,8 @@ const creditDecisionComplete = () => {
     event.event = "creditDecisionComplete";
     event.category = "enrollment";
     event.subCategory = "creditDecision";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -381,6 +405,8 @@ const creditDecisionResult = () => {
     event.failureReason = "creditReportFrozen";
     event.category = "enrollment";
     event.subCategory = "creditDecision";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -397,6 +423,8 @@ const initialCreditLineGranted = () => {
     event.initialAPR = 0.149;
     event.category = "enrollment";
     event.subCategory = "creditDecision";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -410,6 +438,8 @@ const accountDecisionStart = () => {
     event.event = "accountDecisionStart";
     event.category = "enrollment";
     event.subCategory = "accountDecision";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -422,6 +452,8 @@ const accountDecisionComplete = () => {
     event.event = "accountDecisionComplete";
     event.category = "enrollment";
     event.subCategory = "accountDecision";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -435,6 +467,8 @@ const accountDecisionResult = () => {
     event.resultStatus = "createAccountApproved";
     event.category = "enrollment";
     event.subCategory = "accountDecision";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -449,6 +483,8 @@ const accountCreationStart = () => {
     event.event = "accountCreationStart";
     event.category = "enrollment";
     event.subCategory = "accountCreation";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -461,6 +497,8 @@ const accountCreationComplete = () => {
     event.event = "accountCreationComplete";
     event.category = "enrollment";
     event.subCategory = "accountCreation";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -474,6 +512,8 @@ const accountCreationResult = () => {
     event.resultStatus = "createAccountSuccess";
     event.category = "enrollment";
     event.subCategory = "accountCreation";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -486,6 +526,8 @@ const accountCreated = () => {
     event.event = "accountCreated";
     event.category = "enrollment";
     event.subCategory = "accountCreation";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -512,6 +554,8 @@ const reviewImportantDisclosures = () => {
     event.event = "reviewImportantDisclosures";
     event.category = "enrollment";
     event.subCategory = "accountCongrats";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
@@ -524,6 +568,8 @@ const fundYourCardIntent = () => {
     event.event = "accountCreated";
     event.category = "enrollment";
     event.subCategory = "accountCongrats";
+    event.eventType = "eventTracking";
+
     pushEventToDataLayer(event);
   });
 };
