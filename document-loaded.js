@@ -41,7 +41,9 @@ const pushEventToDataLayer = (event) => {
 
 (() => {
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("Document Loaded!");
+    console.log(
+      "=== gtm-datalayer-events => Added event handler for fake users"
+    );
 
     //get current user from local storage
     getCurrentUserFromLocalStorage();

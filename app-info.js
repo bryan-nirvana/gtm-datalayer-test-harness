@@ -56,7 +56,9 @@ const loginClickHandler = () => {
 
 (() => {
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("Adding appInfo, userInfo, deviceInfo, login event handlers");
+    console.log(
+      "=== gtm-datalayer-events => Added event handlers for appInfo, userInfo, deviceInfo, login"
+    );
     appInfoClickHandler();
     deviceInfoClickHandler();
     userInfoClickHandler();

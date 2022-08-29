@@ -565,7 +565,7 @@ const fundYourCardIntent = () => {
   button.style.display = "block";
   button.addEventListener("click", () => {
     let event = {};
-    event.event = "accountCreated";
+    event.event = "fundYourCardIntent";
     event.category = "enrollment";
     event.subCategory = "accountCongrats";
     event.eventType = "eventTracking";
@@ -576,7 +576,9 @@ const fundYourCardIntent = () => {
 
 (() => {
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("Adding event handlers for enrollment");
+    console.log(
+      "=== gtm-datalayer-events => Adding event handlers for enrollment"
+    );
 
     // step 1: personal info
     pvnEnrollmentClickHandler();
