@@ -560,6 +560,7 @@ const fundYourCardIntent = () => {
     kycStart();
     kycComplete();
     kycResult();
+    kycResubmit();
     kycDocVStarted();
     kycDocVComplete();
     kycDocVResult();
