@@ -95,12 +95,82 @@ const phoneVerified = () => {
   });
 };
 
+const emailVerified = () => {
+  let button = document.getElementById("email-verified");
+  button.style.display = "block";
+  button.addEventListener("click", () => {
+    let event = {};
+    event.event = "emailVerified";
+    event.category = "enrollment";
+    event.subCategory = "otp";
+    event.eventType = "eventTracking";
+
+    pushEventToDataLayer(event);
+  });
+};
+
 const otpResend = () => {
   let button = document.getElementById("otp-resend");
   button.style.display = "block";
   button.addEventListener("click", () => {
     let event = {};
     event.event = "otpResend";
+    event.category = "enrollment";
+    event.subCategory = "otp";
+    event.eventType = "eventTracking";
+
+    pushEventToDataLayer(event);
+  });
+};
+
+const fraudDecisionAccept = () => {
+  let button = document.getElementById("fraud-decision-accept");
+  button.style.display = "block";
+  button.addEventListener("click", () => {
+    let event = {};
+    event.event = "fraudDecisionAccept";
+    event.category = "enrollment";
+    event.subCategory = "otp";
+    event.eventType = "eventTracking";
+
+    pushEventToDataLayer(event);
+  });
+};
+
+const fraudDecisionRefer = () => {
+  let button = document.getElementById("fraud-decision-refer");
+  button.style.display = "block";
+  button.addEventListener("click", () => {
+    let event = {};
+    event.event = "fraudDecisionRefer";
+    event.category = "enrollment";
+    event.subCategory = "otp";
+    event.eventType = "eventTracking";
+
+    pushEventToDataLayer(event);
+  });
+};
+
+const fraudDecisionReject = () => {
+  let button = document.getElementById("fraud-decision-reject");
+  button.style.display = "block";
+  button.addEventListener("click", () => {
+    let event = {};
+    event.event = "fraudDecisionReject";
+    event.category = "enrollment";
+    event.subCategory = "otp";
+    event.eventType = "eventTracking";
+
+    pushEventToDataLayer(event);
+  });
+};
+
+const fraudDecisionUnknown = () => {
+  let button = document.getElementById("fraud-decision-unknown");
+  button.style.display = "block";
+  button.addEventListener("click", () => {
+    let event = {};
+    event.event = "fraudDecisionUnknown";
     event.category = "enrollment";
     event.subCategory = "otp";
     event.eventType = "eventTracking";
@@ -417,7 +487,7 @@ const initialCreditLineGranted = () => {
   button.addEventListener("click", () => {
     let event = {};
     event.event = "initialCreditLineGranted";
-    event.creditLineType = "fullCredit";
+    event.creditLineType = "standardAccount";
     event.initialCreditLine = 4000;
     event.initialCreditScore = 720;
     event.initialAPR = 0.149;
@@ -463,7 +533,7 @@ const accountDecisionResult = () => {
   button.style.display = "block";
   button.addEventListener("click", () => {
     let event = {};
-    event.event = "accountDecsionResult";
+    event.event = "accountDecisionResult";
     event.resultStatus = "createAccountApproved";
     event.category = "enrollment";
     event.subCategory = "accountDecision";
@@ -574,6 +644,161 @@ const fundYourCardIntent = () => {
   });
 };
 
+// Enrollment Flow Simulation
+// https://gitlab.com/nirvana_tech/ui/webapp/-/blob/main/src/pages/enrollment/account/utils/logEvents.ts
+
+const socureOkCreditFail = () => {
+  let button = document.getElementById("socure-ok-credit-failed");
+  button.style.display = "block";
+  button.addEventListener("click", () => {
+    // credit decision complete
+    pushEventToDataLayer({
+      event: "creditDecisionComplete",
+      category: "enrollment",
+      subCategory: "creditDecision",
+      eventType: "eventTracking",
+    });
+
+    //credit decision result - frozen credit
+    pushEventToDataLayer({
+      event: "creditDecisionResult",
+      category: "enrollment",
+      subCategory: "creditDecision",
+      resultStatus: "creditDecisionDenied",
+      failureReason: "creditReportFrozen",
+    });
+  });
+};
+
+const socureOkCreditOkAccountFail = () => {
+  let button = document.getElementById("socure-ok-credit-ok-account-fail");
+  button.style.display = "block";
+  button.addEventListener("click", () => {
+    // account decision start
+    pushEventToDataLayer({
+      event: "accountDecisionStart",
+      category: "enrollment",
+      subCategory: "creditDecision",
+      eventType: "eventTracking",
+    });
+
+    // credit decision complete
+    pushEventToDataLayer({
+      event: "creditDecisionComplete",
+      category: "enrollment",
+      subCategory: "creditDecision",
+      eventType: "eventTracking",
+    });
+
+    //credit decision result - approved
+    pushEventToDataLayer({
+      event: "creditDecisionResult",
+      category: "enrollment",
+      subCategory: "creditDecision",
+      resultStatus: "creditDecisionApproved",
+    });
+
+    //account decision complete
+    pushEventToDataLayer({
+      event: "accountDecisionComplete",
+      category: "enrollment",
+      subCategory: "accountDecision",
+    });
+
+    // account decision result
+    pushEventToDataLayer({
+      event: "accountDecisionResult",
+      category: "enrollment",
+      subCategory: "accountDecision",
+      resultStatus: "createAccountDenied",
+    });
+  });
+};
+
+const socureOkCreditOkAccountOk = () => {
+  let button = document.getElementById("socure-ok-credit-ok-account-ok");
+  button.style.display = "block";
+  button.addEventListener("click", () => {
+    // credit decision complete
+    pushEventToDataLayer({
+      event: "creditDecisionComplete",
+      category: "enrollment",
+      subCategory: "creditDecision",
+      eventType: "eventTracking",
+    });
+
+    //credit decision result - approved
+    pushEventToDataLayer({
+      event: "creditDecisionResult",
+      category: "enrollment",
+      subCategory: "creditDecision",
+      resultStatus: "creditDecisionApproved",
+    });
+
+    //account decision start
+    pushEventToDataLayer({
+      event: "accountDecisionStart",
+      category: "enrollment",
+      subCategory: "accountDecision",
+    });
+
+    //account decision complete
+    pushEventToDataLayer({
+      event: "accountDecisionComplete",
+      category: "enrollment",
+      subCategory: "accountDecision",
+    });
+
+    //account decision result
+    pushEventToDataLayer({
+      event: "accountDecisionResult",
+      category: "enrollment",
+      subCategory: "accountDecision",
+      resultStatus: "createAccountApproved",
+    });
+
+    //account creation start
+    pushEventToDataLayer({
+      event: "accountCreationStart",
+      category: "enrollment",
+      subCategory: "accountCreation",
+    });
+
+    //account creation complete
+    pushEventToDataLayer({
+      event: "accountCreationComplete",
+      category: "enrollment",
+      subCategory: "accountCreation",
+    });
+
+    //account creation result
+    pushEventToDataLayer({
+      event: "accountCreationResult",
+      category: "enrollment",
+      subCategory: "accountCreation",
+      resultStatus: "createAccountSuccess",
+    });
+
+    // initial credit line
+    pushEventToDataLayer({
+      event: "initialCreditLineGranted",
+      category: "enrollment",
+      subCategory: "creditLine",
+      creditLineType: "starterAccount",
+      initialCreditLine: 1,
+      initialCreditScore: 620,
+      initialAPR: 0.255,
+    });
+
+    // account created
+    pushEventToDataLayer({
+      event: "accountCreated",
+      category: "enrollment",
+      subCategory: "accountCreation",
+    });
+  });
+};
+
 (() => {
   document.addEventListener("DOMContentLoaded", () => {
     console.log(
@@ -589,7 +814,12 @@ const fundYourCardIntent = () => {
     //step 2: otp
     pvnEnrollmentOtp();
     phoneVerified();
+    emailVerified();
     otpResend();
+    fraudDecisionAccept();
+    fraudDecisionRefer();
+    fraudDecisionReject();
+    fraudDecisionUnknown();
 
     //step 3: address
     pvnEnrollmentAddress();
@@ -636,5 +866,10 @@ const fundYourCardIntent = () => {
     pvnAccountConfirmation();
     reviewImportantDisclosures();
     fundYourCardIntent();
+
+    //enrollment flow simulation
+    socureOkCreditFail();
+    socureOkCreditOkAccountFail();
+    socureOkCreditOkAccountOk();
   });
 })();
