@@ -33,6 +33,7 @@ const updateFakeUserGrid = () => {
 const pushEventToDataLayer = (event) => {
   // add client timestamp to every event
   event.clientTimestampMs = Date.now();
+  event.eventSource = undefined;
 
   // push to the dataLayer
   window.dataLayer = window.dataLayer || [];
