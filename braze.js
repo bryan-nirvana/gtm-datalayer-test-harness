@@ -4,7 +4,7 @@ const billboardEvents = () => {
   let button = document.getElementById("braze-billboard");
   button.style.display = "block";
   button.addEventListener("click", () => {
-    for (let i = i; i < 11; i++) {
+    for (let i = 1; i < 11; i++) {
       pushEventToDataLayer({
         event: "campaignTrigger",
         category: "braze",
@@ -85,9 +85,7 @@ const experimentStartedVar2 = () => {
 
 (() => {
   document.addEventListener("DOMContentLoaded", () => {
-    console.log(
-      "=== gtm-datalayer-events => Adding braze event handlers for accountLinking"
-    );
+    console.log("=== gtm-datalayer-events => Adding braze event handlers");
     billboardEvents();
     experimentTriggerVar1();
     experimentTriggerVar2();
