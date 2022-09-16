@@ -5,11 +5,13 @@ const billboardEvents = () => {
   button.style.display = "block";
   button.addEventListener("click", () => {
     for (let i = 1; i < 11; i++) {
+      const triggerId = `billboard-${i.toString().padStart(2, "0")}`;
       pushEventToDataLayer({
         event: "campaignTrigger",
         category: "braze",
         subCategory: "billboard",
         eventType: "eventTracking",
+        triggerId: triggerId,
       });
     }
   });
