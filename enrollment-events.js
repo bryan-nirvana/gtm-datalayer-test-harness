@@ -109,12 +109,12 @@ const emailVerified = () => {
     let event = {};
     event.event = "emailVerified";
     event.category = "enrollment";
-    //event.subCategory = "otp";
+    event.subCategory = "otp";
     event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);
   });
-};
+};56r5
 
 const otpResend = () => {
   let button = document.getElementById("otp-resend");
