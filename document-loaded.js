@@ -33,7 +33,7 @@ const updateFakeUserGrid = () => {
 const pushEventToDataLayer = (event) => {
   // add client timestamp to every event
   event.clientTimestampMs = Date.now();
-  event.eventSource = undefined;
+  event.eventSource = "nirvanaApp";
 
   // push to the dataLayer
   window.dataLayer = window.dataLayer || [];
