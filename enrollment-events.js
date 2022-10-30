@@ -1,4 +1,9 @@
-const pageViewNirvanaEvent = (pagePath, pageTitle, pageCategory) => {
+const pageViewNirvanaEvent = (
+  pagePath,
+  pageTitle,
+  pageCategory,
+  pageSubCategory = undefined
+) => {
   let event = {};
   event.event = "pageViewNirvana";
   event.category = pageCategory;
@@ -8,7 +13,7 @@ const pageViewNirvanaEvent = (pagePath, pageTitle, pageCategory) => {
   event.pageSearch = window.location.search;
   event.pageHostName = window.location.hostname;
   event.referrer = document.referrer || "";
-  event.subCategory = undefined;
+  event.subCategory = pageSubCategory;
   event.eventSource = "nirvanaApp";
 
   return event;
@@ -104,7 +109,7 @@ const emailVerified = () => {
     let event = {};
     event.event = "emailVerified";
     event.category = "enrollment";
-    event.subCategory = "otp";
+    //event.subCategory = "otp";
     event.eventType = "eventTracking";
 
     pushEventToDataLayer(event);

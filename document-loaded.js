@@ -34,6 +34,8 @@ const pushEventToDataLayer = (event) => {
   // add client timestamp to every event
   event.clientTimestampMs = Date.now();
   event.eventSource = "nirvanaApp";
+  event.category = event.category || undefined;
+  event.subCategory = event.subCategory || undefined;
 
   // push to the dataLayer
   window.dataLayer = window.dataLayer || [];
