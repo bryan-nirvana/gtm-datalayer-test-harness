@@ -8,6 +8,7 @@ const pageViewNirvanaEvent = (pagePath, pageTitle, pageCategory) => {
   event.pageSearch = window.location.search;
   event.pageHostName = window.location.hostname;
   event.referrer = document.referrer || "";
+  event.subCategory = null;
 
   return event;
 };
