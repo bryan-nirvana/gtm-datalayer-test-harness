@@ -114,7 +114,7 @@ const emailVerified = () => {
 
     pushEventToDataLayer(event);
   });
-};56r5
+};
 
 const otpResend = () => {
   let button = document.getElementById("otp-resend");
