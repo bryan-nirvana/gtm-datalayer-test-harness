@@ -117,6 +117,7 @@ const pinwheelSuccessDirectDepositSwitch = () => {
       eventType: "eventTracking",
       accountId: "testAccount",
       platformId: "testPlatform",
+      job: "direct_deposit_switch",
       params: {
         amount: {
           value: 100,
